@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deutschland Präsentation</title>
+    <title>Deutschland Präsentation | Германия</title>
     <style>
         * {
             margin: 0;
@@ -12,362 +12,378 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
+            background-color: #f4f4f4;
         }
 
-        .presentation {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-radius: 8px;
-            overflow: hidden;
+        /* Немецкий флаг в качестве декора */
+        .flag-stripe {
+            height: 5px;
+            background: linear-gradient(to right, #000000 33.33%, #DD0000 33.33%, #DD0000 66.66%, #FFCC00 66.66%);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .slide {
-            min-height: 500px;
-            padding: 50px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-bottom: 2px solid #eee;
-            page-break-after: always;
-        }
-
-        .slide:last-child {
-            border-bottom: none;
-        }
-
-        .slide.cover {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            text-align: center;
-            align-items: center;
-        }
-
-        .slide.dark {
+        header {
             background: #1a1a1a;
             color: white;
-        }
-
-        .flag-accent {
-            height: 4px;
-            width: 80px;
-            background: linear-gradient(to right, #000 33.33%, #DD0000 33.33%, #DD0000 66.66%, #FFCC00 66.66%);
-            margin: 20px 0;
-        }
-
-        .cover .flag-accent {
-            margin: 20px auto;
+            padding: 2rem 0;
+            text-align: center;
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 3.5rem;
             letter-spacing: 3px;
-            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #FFCC00;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            position: sticky;
+            top: 5px;
+            z-index: 999;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #DD0000;
+            color: #DD0000;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
         h2 {
-            font-size: 2em;
-            color: #DD0000;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #FFCC00;
-            display: inline-block;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-left: 5px solid #DD0000;
+            padding-left: 1rem;
         }
 
-        .slide.dark h2 {
-            color: #FFCC00;
-            border-bottom-color: #fff;
+        .intro-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #555;
         }
 
-        ul {
-            list-style: none;
-            margin: 15px 0;
-        }
-
-        ul li {
-            padding: 12px 0;
-            font-size: 1.2em;
-            border-bottom: 1px solid #eee;
-        }
-
-        ul li:before {
-            content: "▸ ";
-            color: #DD0000;
-            font-weight: bold;
-        }
-
-        .slide.dark ul li:before {
-            color: #FFCC00;
-        }
-
-        .slide.dark ul li {
-            border-bottom: 1px solid #444;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .fact-box {
-            background: #f5f5f5;
-            padding: 25px;
-            text-align: center;
-            border-radius: 10px;
-            border-top: 4px solid #DD0000;
-        }
-
-        .slide.dark .fact-box {
-            background: #333;
-            border-top: 4px solid #FFCC00;
-        }
-
-        .fact-box .number {
-            display: block;
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #DD0000;
-            margin-bottom: 10px;
-        }
-
-        .slide.dark .fact-box .number {
-            color: #FFCC00;
-        }
-
-        .two-columns {
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
+            gap: 2rem;
+            align-items: center;
         }
 
-        .slide-number {
-            color: #999;
-            font-size: 0.9em;
-            margin-top: auto;
-            padding-top: 20px;
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .cover .slide-number {
-            color: #aaa;
+        .stat-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 3px solid #FFCC00;
         }
 
-        .vielen-dank {
-            font-size: 4em;
+        .stat-number {
+            font-size: 2.5rem;
             font-weight: bold;
-            color: #FFCC00;
+            color: #DD0000;
+            display: block;
         }
 
-        @media (max-width: 700px) {
-            .slide {
-                padding: 30px;
-                min-height: auto;
-            }
-            .grid-3, .two-columns {
+        .city-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .city-placeholder {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .bg-berlin { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .bg-munich { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .bg-hamburg { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .bg-cologne { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+
+        .city-info {
+            padding: 1rem;
+        }
+
+        .city-info h3 {
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+        }
+
+        .fact-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .fact-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .fact-list li:before {
+            content: "✓ ";
+            color: #DD0000;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .quote {
+            background: #1a1a1a;
+            color: #FFCC00;
+            padding: 2rem;
+            border-radius: 10px;
+            font-style: italic;
+            font-size: 1.3rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .highlight {
+            color: #DD0000;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
                 grid-template-columns: 1fr;
             }
+            nav a {
+                margin: 0 0.8rem;
+                font-size: 0.9rem;
+            }
             h1 {
-                font-size: 2em;
-            }
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-            .presentation {
-                box-shadow: none;
-                margin: 0;
-                max-width: 100%;
-            }
-            .slide {
-                min-height: 100vh;
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="presentation">
+<div class="flag-stripe"></div>
 
-    <!-- Слайд 1: Титульный -->
-    <div class="slide cover">
-        <div class="flag-accent"></div>
-        <h1>Deutschland</h1>
-        <p style="font-size: 1.5em; color: #FFCC00; margin: 10px 0;">Land der Ideen und Kultur</p>
-        <p style="color: #ccc; margin-top: 20px;">Präsentation von [Ваше имя]</p>
-        <div class="slide-number">1 / 10</div>
-    </div>
+<header>
+    <h1>Deutschland</h1>
+    <p class="subtitle">Land der Ideen · Land der Vielfalt</p>
+</header>
 
-    <!-- Слайд 2: Общая информация -->
-    <div class="slide">
-        <h2>Allgemeine Informationen</h2>
-        <div class="flag-accent"></div>
-        <ul>
-            <li><strong>Hauptstadt:</strong> Berlin</li>
-            <li><strong>Einwohner:</strong> ca. 83 Millionen</li>
-            <li><strong>Fläche:</strong> 357.022 km²</li>
-            <li><strong>Amtssprache:</strong> Deutsch</li>
-            <li><strong>Währung:</strong> Euro (€)</li>
-            <li><strong>Regierungsform:</strong> Parlamentarische Bundesrepublik</li>
-            <li><strong>Nachbarländer:</strong> 9 (Frankreich, Polen, Österreich, etc.)</li>
-        </ul>
-        <div class="slide-number">2 / 10</div>
-    </div>
+<nav>
+    <a href="#allgemein">Allgemein</a>
+    <a href="#staedte">Städte</a>
+    <a href="#kultur">Kultur</a>
+    <a href="#essen">Essen</a>
+    <a href="#fakten">Fakten</a>
+</nav>
 
-    <!-- Слайд 3: Федеральные земли -->
-    <div class="slide">
-        <h2>16 Bundesländer</h2>
-        <div class="flag-accent"></div>
-        <p style="margin-bottom: 20px; font-size: 1.2em;">Deutschland besteht aus 16 Bundesländern. Die größten sind:</p>
-        <div class="grid-3">
-            <div class="fact-box">
-                <span class="number">1.</span>
-                <strong>Bayern</strong>
-                <p>München</p>
+<div class="container">
+
+    <!-- Секция 1: Общая информация -->
+    <div id="allgemein" class="section">
+        <h2>🇩🇪 Willkommen in Deutschland</h2>
+        <div class="grid-2">
+            <div>
+                <p class="intro-text">
+                    Deutschland liegt im Herzen Europas und ist bekannt für seine reiche Geschichte, 
+                    innovative Technologie und vielfältige Kultur. Mit über <span class="highlight">83 Millionen Einwohnern</span> 
+                    ist es das bevölkerungsreichste Land der Europäischen Union.
+                </p>
+                <p>Die Hauptstadt ist <strong>Berlin</strong>, und die Amtssprache ist Deutsch. 
+                Deutschland grenzt an neun Nachbarländer und hat Zugang zur Nord- und Ostsee.</p>
             </div>
-            <div class="fact-box">
-                <span class="number">2.</span>
-                <strong>Niedersachsen</strong>
-                <p>Hannover</p>
-            </div>
-            <div class="fact-box">
-                <span class="number">3.</span>
-                <strong>NRW</strong>
-                <p>Düsseldorf</p>
+            <div class="grid-2" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="stat-card">
+                    <span class="stat-number">16</span>
+                    Bundesländer
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">83 Mio</span>
+                    Einwohner
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">357k</span>
+                    km² Fläche
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">€</span>
+                    Währung
+                </div>
             </div>
         </div>
-        <div class="slide-number">3 / 10</div>
     </div>
 
-    <!-- Слайд 4: Города -->
-    <div class="slide dark">
-        <h2>Bedeutende Städte</h2>
-        <div class="flag-accent"></div>
-        <ul>
-            <li><strong>Berlin</strong> – Hauptstadt, 3,6 Mio Einwohner. Brandenburger Tor, Reichstag.</li>
-            <li><strong>München</strong> – Landeshauptstadt Bayerns. Oktoberfest, BMW Welt.</li>
-            <li><strong>Hamburg</strong> – Größter Hafen Deutschlands. Elbphilharmonie.</li>
-            <li><strong>Köln</strong> – Der Kölner Dom, Karneval.</li>
-            <li><strong>Frankfurt am Main</strong> – Finanzzentrum mit beeindruckender Skyline.</li>
+    <!-- Секция 2: Города -->
+    <div id="staedte" class="section">
+        <h2>🏙️ Beliebte Städte</h2>
+        <div class="grid-4">
+            <div class="city-card">
+                <div class="city-placeholder bg-berlin">Berlin</div>
+                <div class="city-info">
+                    <h3>Berlin</h3>
+                    <p>Hauptstadt · 3,6 Mio Einwohner</p>
+                    <p><small>Brandenburger Tor, East Side Gallery</small></p>
+                </div>
+            </div>
+            <div class="city-card">
+                <div class="city-placeholder bg-munich">München</div>
+                <div class="city-info">
+                    <h3>München</h3>
+                    <p>Bayern · 1,5 Mio Einwohner</p>
+                    <p><small>Oktoberfest, Englischer Garten</small></p>
+                </div>
+            </div>
+            <div class="city-card">
+                <div class="city-placeholder bg-hamburg">Hamburg</div>
+                <div class="city-info">
+                    <h3>Hamburg</h3>
+                    <p>Hafenstadt · 1,8 Mio Einwohner</p>
+                    <p><small>Elbphilharmonie, Speicherstadt</small></p>
+                </div>
+            </div>
+            <div class="city-card">
+                <div class="city-placeholder bg-cologne">Köln</div>
+                <div class="city-info">
+                    <h3>Köln</h3>
+                    <p>NRW · 1,1 Mio Einwohner</p>
+                    <p><small>Kölner Dom, Karneval</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция 3: Культура -->
+    <div id="kultur" class="section">
+        <h2>🎭 Kultur & Traditionen</h2>
+        <ul class="fact-list">
+            <li><strong>Oktoberfest</strong> – Das größte Volksfest der Welt in München (seit 1810).</li>
+            <li><strong>Weihnachtsmärkte</strong> – Traditionelle Märkte mit Glühwein und Lebkuchen im Dezember.</li>
+            <li><strong>Karneval</strong> – Besonders in Köln, Mainz und Düsseldorf mit bunten Umzügen.</li>
+            <li><strong>Musik</strong> – Deutschland ist das Land von Bach, Beethoven und Brahms.</li>
+            <li><strong>Philosophie & Literatur</strong> – Goethe, Schiller, Kant und Nietzsche prägten die Welt.</li>
         </ul>
-        <div class="slide-number">4 / 10</div>
+        <div class="quote">
+            „Die Grenzen der Sprache bedeuten die Grenzen der Welt.“ – Ludwig Wittgenstein
+        </div>
     </div>
 
-    <!-- Слайд 5: Культура -->
-    <div class="slide">
-        <h2>Kultur und Traditionen</h2>
-        <div class="flag-accent"></div>
-        <ul>
-            <li><strong>Oktoberfest</strong> – Weltgrößtes Volksfest in München.</li>
-            <li><strong>Weihnachtsmärkte</strong> – Glühwein und Lebkuchen im Dezember.</li>
-            <li><strong>Karneval</strong> – Bunte Umzüge im Rheinland.</li>
-            <li><strong>Klassische Musik</strong> – Land von Bach, Beethoven und Brahms.</li>
-            <li><strong>Literatur</strong> – Goethe, Schiller, die Brüder Grimm.</li>
-        </ul>
-        <div class="slide-number">5 / 10</div>
-    </div>
-
-    <!-- Слайд 6: Достопримечательности -->
-    <div class="slide dark">
-        <h2>Sehenswürdigkeiten</h2>
-        <div class="flag-accent"></div>
-        <ul>
-            <li><strong>Schloss Neuschwanstein</strong> – Märchenschloss in Bayern.</li>
-            <li><strong>Brandenburger Tor</strong> – Symbol der Einheit in Berlin.</li>
-            <li><strong>Kölner Dom</strong> – UNESCO-Weltkulturerbe.</li>
-            <li><strong>Schwarzwald</strong> – Mittelgebirge mit Kuckucksuhren.</li>
-            <li><strong>Zugspitze</strong> – Höchster Berg Deutschlands (2.962 m).</li>
-        </ul>
-        <div class="slide-number">6 / 10</div>
-    </div>
-
-    <!-- Слайд 7: Еда -->
-    <div class="slide">
-        <h2>Typisches Essen und Trinken</h2>
-        <div class="flag-accent"></div>
-        <div class="two-columns">
+    <!-- Секция 4: Еда -->
+    <div id="essen" class="section">
+        <h2>🍺 Typisches Essen & Trinken</h2>
+        <div class="grid-2">
             <div>
-                <h3 style="color: #333; border: none; font-size: 1.3em; margin-bottom: 15px;">Gerichte</h3>
-                <ul style="font-size: 1em;">
-                    <li>Bratwurst mit Sauerkraut</li>
-                    <li>Schnitzel</li>
-                    <li>Brezel</li>
-                    <li>Kartoffelsalat</li>
-                    <li>Schwarzwälder Kirschtorte</li>
+                <h3>Herzhafte Gerichte</h3>
+                <ul class="fact-list">
+                    <li><strong>Bratwurst</strong> – Gegrillte Wurst, oft mit Sauerkraut serviert.</li>
+                    <li><strong>Schnitzel</strong> – Paniertes Kalb- oder Hähnchenfleisch.</li>
+                    <li><strong>Brezel</strong> – Laugengebäck, typisch in Bayern.</li>
+                    <li><strong>Kartoffelsalat</strong> – Beliebt im ganzen Land.</li>
                 </ul>
             </div>
             <div>
-                <h3 style="color: #333; border: none; font-size: 1.3em; margin-bottom: 15px;">Getränke</h3>
-                <ul style="font-size: 1em;">
-                    <li>Bier (Reinheitsgebot seit 1516)</li>
-                    <li>Apfelschorle</li>
-                    <li>Glühwein</li>
-                    <li>Riesling (Wein)</li>
+                <h3>Getränke & Süßes</h3>
+                <ul class="fact-list">
+                    <li><strong>Bier</strong> – Über 1500 Brauereien; Reinheitsgebot seit 1516.</li>
+                    <li><strong>Schwarzwälder Kirschtorte</strong> – Weltberühmte Torte.</li>
+                    <li><strong>Apfelschorle</strong> – Apfelsaft mit Mineralwasser.</li>
+                    <li><strong>Glühwein</strong> – Heißer Rotwein mit Gewürzen.</li>
                 </ul>
             </div>
         </div>
-        <div class="slide-number">7 / 10</div>
     </div>
 
-    <!-- Слайд 8: Известные люди -->
-    <div class="slide dark">
-        <h2>Berühmte Persönlichkeiten</h2>
-        <div class="flag-accent"></div>
-        <div class="grid-3">
-            <div class="fact-box">
-                <strong>Albert Einstein</strong>
-                <p>Physiker, Relativitätstheorie</p>
+    <!-- Секция 5: Интересные факты -->
+    <div id="fakten" class="section">
+        <h2>💡 Interessante Fakten</h2>
+        <div class="grid-4">
+            <div class="stat-card">
+                <span class="stat-number">#1</span>
+                <p>Die deutsche Sprache ist die meistgesprochene Muttersprache in der EU.</p>
             </div>
-            <div class="fact-box">
-                <strong>Ludwig van Beethoven</strong>
-                <p>Komponist</p>
+            <div class="stat-card">
+                <span class="stat-number">400+</span>
+                <p>Zoologische Gärten – die meisten weltweit in einem Land.</p>
             </div>
-            <div class="fact-box">
-                <strong>Angela Merkel</strong>
-                <p>Bundeskanzlerin 2005–2021</p>
+            <div class="stat-card">
+                <span class="stat-number">1516</span>
+                <p>Das Reinheitsgebot für Bier ist das älteste Lebensmittelgesetz.</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1.000+</span>
+                <p>Brotsorten gibt es in Deutschland.</p>
             </div>
         </div>
-        <div class="slide-number">8 / 10</div>
-    </div>
-
-    <!-- Слайд 9: Интересные факты -->
-    <div class="slide">
-        <h2>Interessante Fakten</h2>
-        <div class="flag-accent"></div>
-        <div class="grid-3">
-            <div class="fact-box">
-                <span class="number">1.</span>
-                <p>Es gibt über 1.000 verschiedene Brotsorten.</p>
-            </div>
-            <div class="fact-box">
-                <span class="number">2.</span>
-                <p>Deutschland hat über 400 Zoos – Weltrekord.</p>
-            </div>
-            <div class="fact-box">
-                <span class="number">3.</span>
-                <p>Die erste Buchdruckerei kam aus Mainz (Gutenberg).</p>
-            </div>
-        </div>
-        <div class="slide-number">9 / 10</div>
-    </div>
-
-    <!-- Слайд 10: Заключительный -->
-    <div class="slide cover">
-        <div class="flag-accent"></div>
-        <p class="vielen-dank">Vielen Dank!</p>
-        <p style="font-size: 1.2em; color: #FFCC00;">Danke für Ihre Aufmerksamkeit!</p>
-        <p style="color: #ccc; margin-top: 30px;">Haben Sie Fragen?</p>
-        <div class="slide-number">10 / 10</div>
     </div>
 
 </div>
+
+<footer>
+    <p>© 2025 Präsentation über Deutschland · Erstellt für den Deutschunterricht</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">🇩🇪 Einigkeit und Recht und Freiheit 🇩🇪</p>
+</footer>
 
 </body>
 </html>
